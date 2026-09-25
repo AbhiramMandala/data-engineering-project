@@ -14,6 +14,7 @@ def fetch_json(url: str, timeout: int = 30):
         return json.loads(r.read().decode())
 
 def main():
+    RAW.mkdir(parents=True, exist_ok=True)
     # Public test API - no key needed. Swap for your own source later.
     users = fetch_json("https://jsonplaceholder.typicode.com/users")
     posts = fetch_json("https://jsonplaceholder.typicode.com/posts")
