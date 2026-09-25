@@ -1,21 +1,22 @@
-# Results — Data Engineering Fundamentals
+# What I built (simple summary)
 
-## 1. Secure landing zones (Linux, ubuntu:22.04)
-- `/data/landing` 750, `raw/` 750, `staging/` 750, `processed/` 700, `umask 027`
+## 1. Landing zones — folders with locks (Linux)
+- Made `raw/`, `staging/`, `processed/` folders
+- Locks: `raw/` 750, `staging/` 750, `processed/` 700 (only I can open it)
 
-## 2. Log analysis (`scripts/log_analysis.sh`)
-- `logs/app.log`: 500 lines, ERROR 81, WARN 84
-- Top IP `192.168.1.12` (31), top code `200` (207), top endpoint `/health` (117)
-- Report: `logs/analysis_errors.txt` (81 lines, gitignored artifact)
+## 2. Log reading — diary file + Linux commands
+- Made a 500-line practice diary (`logs/app.log`): 81 errors, 84 warnings
+- Found: busiest computer, most-visited pages, most common answer codes
+- Saved only the error lines into `logs/analysis_errors.txt`
 
-## 3. REST API (`scripts/fetch_api.py`)
-- `jsonplaceholder.typicode.com/users` (10) + `/posts` (100)
-- Output: `data/landing/raw/users_*.json/.csv`, `posts_*.json`
+## 3. Downloading data — free test website (API)
+- Downloaded 10 users + 100 posts into `data/landing/raw/`
+- Copied the newest file into `data/landing/staging/`
 
-## 4. Docker
-- Image `de-fundamentals:1.0` built and run (ingest reproduced in container)
-- `docker-compose.yml` service `db` (postgres:16) healthy via `pg_isready`
+## 4. Docker — sealed box
+- Built picture `de-fundamentals:1.0`; the download script runs the same inside the box
+- Practice database (postgres:16) starts fine and answers "accepting connections"
 
-## 5. Git
-- `main`: baseline `0adc514`, feature `d0027eb`, merge `519ed3a`
-- This PR: adds results report + staging promotion proof
+## 5. Git — versions + asking to merge (Pull Request)
+- Main copy + safe work copies (branches), merged back with Pull Request #1
+- Everything under my name, working tree clean

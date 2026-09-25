@@ -1,4 +1,4 @@
-"""Generate docs/pipeline.png flowchart with Pillow (stdlib + pillow only)."""
+"""Draw the docs/pipeline.png picture (needs pillow installed)."""
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 

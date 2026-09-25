@@ -1,4 +1,9 @@
-"""Promote latest raw users CSV to staging with basic validation."""
+"""Copy the newest downloaded users file from raw/ into staging/.
+
+Beginner note: raw/ = where new data lands. staging/ = the cleaning table
+where you check data before using it. This script just finds the newest
+users_*.csv file and copies it over.
+"""
 import glob
 import shutil
 from pathlib import Path

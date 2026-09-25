@@ -1,12 +1,22 @@
-"""Generate realistic sample app.log for Task 2 log analysis."""
+"""Make a fake diary file (app.log) so Task 2 has something to read.
+
+Beginner note: a 'log file' is just a diary where a program writes one line
+per thing it did. This script writes 500 diary lines with a fixed random
+seed, so everyone gets the exact same file.
+"""
 import random
 from datetime import datetime, timedelta
 
+# Fixed seed = same 500 lines every time (good for practice + tests).
 random.seed(42)
+# Most lines are normal (INFO). A few are warnings or errors to find later.
 levels = ["INFO", "INFO", "INFO", "INFO", "WARN", "ERROR"]
+# Fake website pages visitors asked for.
 endpoints = ["/api/users", "/api/orders", "/api/products", "/api/login", "/health"]
+# "OK" codes (page worked) vs "bad" codes (page failed).
 status_ok = [200, 200, 200, 201, 301]
 status_err = [404, 500, 502, 403, 429]
+# Fake visitor computers.
 ips = [f"192.168.1.{i}" for i in range(2, 25)]
 
 start = datetime(2026, 9, 20, 9, 0, 0)
