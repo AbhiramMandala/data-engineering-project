@@ -1,0 +1,16 @@
+services:
+  ingest:
+    build: .
+    volumes:
+      - ./data/landing/raw:/app/data/landing/raw
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: analytics
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:

@@ -1,0 +1,20 @@
+# Python / data artifacts
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data landing - ignore ingested data (keep folders via .gitkeep)
+data/landing/raw/*
+data/landing/staging/*
+data/landing/processed/*
+!data/landing/raw/.gitkeep
+!data/landing/staging/.gitkeep
+!data/landing/processed/.gitkeep
+
+# Logs output
+logs/analysis_*.txt
+
+# Docker / OS
+.env
+.DS_Store
